@@ -1,0 +1,102 @@
+$padding-FH: 12px;
+$bacground-color: rgb(232, 250, 253);
+
+.task {
+  background-color: $bacground-color;
+  position: relative;
+  width: 350px;
+  height: 400px;
+  hr {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1px;
+    background-color: rgb(180, 180, 180);
+    border: none;
+  }
+}
+.task-header {
+  background-color: $bacground-color;
+  height: 10%;
+  padding: $padding-FH;
+  padding-top: 2 * $padding-FH;
+  text-align: center;
+  color: grey;
+}
+.task-main {
+  position: relative;
+  padding: 5px;
+  background-color: $bacground-color;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .task-content {
+    padding: 15px;
+    .task-title {
+      color: black;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+    .task-description {
+      text-align: left;
+    }
+  }
+}
+.task-status-undone {
+  color: red;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  padding: 10px;
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+}
+.task-status-done {
+  color: green;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  padding: 10px;
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+}
+.task-date {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  .task-created-date {
+    color: green;
+  }
+  .task-updated-date {
+    color: purple;
+  }
+}
+.task-footer {
+  background-color: $bacground-color;
+  position: absolute;
+  padding: $padding-FH;
+  height: 10%;
+  bottom: calc(-8% - $padding-FH);
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.task-icon {
+  svg {
+    width: 25px;
+    height: 25px;
+    padding: 8px;
+    cursor: pointer;
+  }
+}
