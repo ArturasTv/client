@@ -1,1 +1,1 @@
-const sortValues = ["title", "category", "date"];
+export const sortValues = ["title", "category", "date"];
