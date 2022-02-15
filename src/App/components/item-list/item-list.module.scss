@@ -1,0 +1,18 @@
+.item-list {
+  background-color: rgba(252, 255, 214, 0.589);
+  display: inline-block;
+  padding: 20px;
+}
+
+.item-list-header {
+  height: 50px;
+  text-align: center;
+}
+.item-list-icon {
+  svg {
+    width: 25px;
+    height: 25px;
+    padding: 8px;
+    cursor: pointer;
+  }
+}
