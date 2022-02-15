@@ -6,6 +6,7 @@ const Item = ({ task }) => {
       <div className={styles["item-main"]}>
         <div
           className={styles[`item-status-${task.status ? "done" : "undone"}`]}
+          title={task.status ? "Atlikta" : "Neužbaigta"}
         ></div>
         <div className={styles["item-title"]}>{task.title}</div>
         <div className={styles["item-info"]}>
