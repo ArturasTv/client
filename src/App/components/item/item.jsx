@@ -1,5 +1,6 @@
 import styles from "./item.module.scss";
 import { GrMoreVertical } from "react-icons/gr";
+import { Link } from "react-router-dom";
 const Item = ({ task }) => {
   return (
     <div className={styles["item"]}>
@@ -16,7 +17,9 @@ const Item = ({ task }) => {
           </p>
         </div>
         <div className={styles["item-more"]}>
-          <GrMoreVertical title="Plačiau" />
+          <Link key={task.key} to={`/task/${task.id}`}>
+            <GrMoreVertical title="Plačiau" />
+          </Link>
         </div>
       </div>
     </div>
