@@ -17,7 +17,7 @@ const Item = ({ task }) => {
           </p>
         </div>
         <div className={styles["item-more"]}>
-          <Link key={task.key} to={`/task/${task.id}`}>
+          <Link key={task.id} to={`/task/${task.id}`}>
             <GrMoreVertical title="Plačiau" />
           </Link>
         </div>
