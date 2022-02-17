@@ -7,8 +7,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useState } from "react";
 import { sortValues } from "./../../constants";
 
-const ItemList = ({ tasks1 }) => {
-  const [tasks, setTasks] = useState(tasks1);
+const ItemList = ({ _tasks }) => {
+  const [tasks, setTasks] = useState(_tasks);
   const [titleOrder, setTitleOrder] = useState(true);
   const [categoryOrder, setCategoryOrder] = useState(true);
   const [dateOrder, setdDateOrder] = useState(true);
