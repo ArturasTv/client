@@ -1,8 +1,15 @@
 import styles from "./task.module.scss";
 import { RiCheckboxBlankCircleFill, RiDeleteBinLine } from "react-icons/ri";
 import { GrUpdate, GrCheckmark } from "react-icons/gr";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Task = ({ task }) => {
+const Task = ({ item, updateTask, deleteTask }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const task = { ...item };
+
   return (
     <div className={styles["task"]}>
       <div className={styles["task-header"]} title="Kategorija">
@@ -52,15 +59,29 @@ const Task = ({ task }) => {
         >
           {!task.status && (
             <div className={styles["task-icon"]}>
-              <GrCheckmark title="Atlikti" />
+              <GrCheckmark
+                title="Atlikti"
+                onClick={() => {
+                  dispatch(updateTask(item.id, { ...item, status: true }));
+                  navigate("/");
+                }}
+              />
             </div>
           )}
 
           <div className={styles["task-icon"]}>
-            <GrUpdate title="Atnaujinti" />
+            <Link to="/update">
+              <GrUpdate title="Atnaujinti" />
+            </Link>
           </div>
           <div className={styles["task-icon"]}>
-            <RiDeleteBinLine title="Ištrinti" />
+            <RiDeleteBinLine
+              title="Ištrinti"
+              onClick={() => {
+                dispatch(deleteTask(item.id));
+                navigate("/");
+              }}
+            />
           </div>
         </div>
       </div>
