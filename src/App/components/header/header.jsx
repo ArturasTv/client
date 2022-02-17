@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import Navbar from "../navbar/navbar";
 import { menuItems } from "../../constants";
 import { useLocation } from "react-router";
+
 const Header = () => {
   const currentLocation = useLocation().pathname;
   let _title = menuItems.find((item) => item.path == currentLocation);

@@ -10,3 +10,5 @@ export const menuItems = [
   },
   { title: "Užduotis", path: "/task", key: "TASK", visible: false },
 ];
+
+export const categories = ["1 kategorija", "2 kategorija", "3 kategorija"];

@@ -4,7 +4,7 @@ import { TiSortAlphabetically } from "react-icons/ti";
 import { BiCategoryAlt } from "react-icons/bi";
 import { BsCalendarDate } from "react-icons/bs";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { sortValues } from "./../../constants";
 
 const ItemList = ({ _tasks }) => {
@@ -13,6 +13,10 @@ const ItemList = ({ _tasks }) => {
   const [categoryOrder, setCategoryOrder] = useState(true);
   const [dateOrder, setdDateOrder] = useState(true);
   const [bounds, setBounds] = useState({ min: 0, max: 5 });
+
+  useEffect(() => {
+    setTasks(_tasks);
+  }, [_tasks]);
 
   const sortTasks = (index) => {
     let temp = [...tasks];
@@ -34,7 +38,7 @@ const ItemList = ({ _tasks }) => {
     }
     if (sortValues[index] === "date") {
       temp = temp.sort((a, b) =>
-        dateOrder ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date)
+        dateOrder ? a.created - b.created : b.created - a.created
       );
       setdDateOrder(!dateOrder);
     }
@@ -88,7 +92,7 @@ const ItemList = ({ _tasks }) => {
       </div>
       <div className={styles["item-list-main"]}>
         {tasks.slice(bounds.min, bounds.max).map((item) => (
-          <Item task={item} key={item.id} />
+          <Item task={item} key={item._id} />
         ))}
       </div>
       <div className={styles["item-list-footer"]}>

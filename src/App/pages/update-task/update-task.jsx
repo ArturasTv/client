@@ -13,7 +13,7 @@ const UpdateTaskPage = () => {
       {!task ? (
         <Loading />
       ) : (
-        <UpdateTaskForm item={{ ...task.task }} {...props} />
+        <UpdateTaskForm item={{ ...task.task }[0]} {...props} />
       )}
     </div>
   );

@@ -10,9 +10,7 @@ export const getTasks = () => (dispatch) => {
         type: types.GET_TASKS_SUCCESS,
         payload: { tasks: data.data },
       });
-      dispatch({
-        type: types.STOP_LOADING,
-      });
+      return Promise.resolve();
     })
     .catch((err) => {
       const message =
@@ -23,9 +21,7 @@ export const getTasks = () => (dispatch) => {
         type: types.SET_MESSAGE,
         payload: message,
       });
-      dispatch({
-        type: types.STOP_LOADING,
-      });
+      return Promise.reject();
     });
 };
 
@@ -37,9 +33,6 @@ export const getTask = (id) => (dispatch) => {
         type: types.GET_TASK_SUCCESS,
         payload: { task: data.data },
       });
-      dispatch({
-        type: types.STOP_LOADING,
-      });
     })
     .catch((err) => {
       const message =
@@ -49,9 +42,6 @@ export const getTask = (id) => (dispatch) => {
       dispatch({
         type: types.SET_MESSAGE,
         payload: message,
-      });
-      dispatch({
-        type: types.STOP_LOADING,
       });
     });
 };
@@ -69,9 +59,6 @@ export const postTask = (task) => (dispatch) => {
         type: types.SET_MESSAGE,
         payload: message,
       });
-      dispatch({
-        type: types.STOP_LOADING,
-      });
     });
 };
 
@@ -88,9 +75,6 @@ export const updateTask = (id, task) => (dispatch) => {
         type: types.SET_MESSAGE,
         payload: message,
       });
-      dispatch({
-        type: types.STOP_LOADING,
-      });
     });
 };
 
@@ -106,9 +90,6 @@ export const deleteTask = (id) => (dispatch) => {
       dispatch({
         type: types.SET_MESSAGE,
         payload: message,
-      });
-      dispatch({
-        type: types.STOP_LOADING,
       });
     });
 };

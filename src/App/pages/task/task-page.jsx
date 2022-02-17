@@ -4,7 +4,6 @@ import Task from "../../components/task/task";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTask } from "./../../redux/actions/task-action";
-import { startLoading } from "../../redux/actions/loading-action";
 import Loading from "../../components/loading/loading";
 import { updateTask, deleteTask } from "./../../redux/actions/task-action";
 
@@ -21,7 +20,6 @@ const TaskPage = () => {
   };
 
   useEffect(() => {
-    dispatch(startLoading());
     dispatch(getTask(id));
   }, []);
 

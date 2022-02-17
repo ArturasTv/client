@@ -4,12 +4,14 @@ import { GrUpdate, GrCheckmark } from "react-icons/gr";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import moment from "moment/moment.js";
+import "moment/locale/lt";
 
 const Task = ({ item, updateTask, deleteTask }) => {
+  moment.locale("lt");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const task = { ...item };
-
+  const task = { ...item }[0];
   return (
     <div className={styles["task"]}>
       <div className={styles["task-header"]} title="Kategorija">
@@ -28,15 +30,15 @@ const Task = ({ item, updateTask, deleteTask }) => {
         )}
 
         <div className={styles["task-date"]}>
-          <p className={styles["task-created-date"]}>
+          <div className={styles["task-created-date"]}>
             <p style={{ display: "inline-block", width: 65 }}>Sukurta:</p>
-            {task.created}
-          </p>
+            {moment.unix(task.created).format("L LTS")}
+          </div>
           {task.updated && (
-            <p className={styles["task-updated-date"]}>
+            <div className={styles["task-updated-date"]}>
               <p style={{ display: "inline-block", width: 65 }}>Atnaujinta:</p>
-              {task.updated}
-            </p>
+              {moment.unix(task.updated).format("L LTS")}
+            </div>
           )}
         </div>
         <div className={styles["task-content"]}>
@@ -62,7 +64,7 @@ const Task = ({ item, updateTask, deleteTask }) => {
               <GrCheckmark
                 title="Atlikti"
                 onClick={() => {
-                  dispatch(updateTask(item.id, { ...item, status: true }));
+                  dispatch(updateTask(task._id, { ...task, status: true }));
                   navigate("/");
                 }}
               />
@@ -78,7 +80,7 @@ const Task = ({ item, updateTask, deleteTask }) => {
             <RiDeleteBinLine
               title="Ištrinti"
               onClick={() => {
-                dispatch(deleteTask(item.id));
+                dispatch(deleteTask(task._id));
                 navigate("/");
               }}
             />

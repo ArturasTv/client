@@ -13,7 +13,9 @@ const Navbar = () => {
             <Link
               key={item.key}
               to={item.path}
-              className={item.path === location.pathname && styles["active"]}
+              className={
+                item.path === location.pathname ? styles["active"] : ""
+              }
             >
               {item.title}
             </Link>
