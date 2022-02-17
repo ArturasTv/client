@@ -1,0 +1,45 @@
+$inputWidth: 75%;
+.create-task-form {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  width: 350px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(232, 250, 253);
+  form {
+    text-align: center;
+    textarea,
+    input,
+    select {
+      resize: none;
+      width: $inputWidth;
+      outline: none;
+      font-family: inherit;
+      font-size: 18px;
+      margin-top: 20px;
+      border-width: 0px;
+      border: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+        0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+        0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+    }
+    ::placeholder {
+      color: black;
+    }
+    .create-task-form-button {
+      svg {
+        padding-top: 5px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        color: black;
+      }
+    }
+    select {
+      width: calc($inputWidth + 6px);
+    }
+  }
+}
